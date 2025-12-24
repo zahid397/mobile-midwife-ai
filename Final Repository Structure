@@ -1,0 +1,37 @@
+ mobile-midwife-ai/
+│
+├── backend/
+│   ├── main.py
+│   ├── requirements.txt
+│   │
+│   ├── models/
+│   │   └── schema.py
+│   │
+│   ├── logic/
+│   │   └── rules.py
+│   │
+│   └── routes/
+│       └── analyze.py
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── InputForm.jsx
+│   │   │   ├── RiskBadge.jsx
+│   │   │   └── VoiceOutput.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   └── Home.jsx
+│   │   │
+│   │   ├── services/
+│   │   │   └── api.js
+│   │   │
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── index.html
+│   └── package.json
+│
+├── README.md   ✅ (যেটা আমি দিলাম)
+│
+└── .gitignore
