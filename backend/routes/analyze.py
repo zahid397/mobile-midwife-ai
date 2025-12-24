@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from backend.models.schema import SymptomInput, AnalysisResponse
-from backend.logic.rules import evaluate_risk
+from models.schema import SymptomInput, AnalysisResponse
+from logic.rules import evaluate_risk
 
 router = APIRouter(prefix="/analyze", tags=["Analysis"])
 
