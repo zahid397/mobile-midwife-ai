@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { analyzeSymptoms } from "./api";
+import "./App.css";
 
 function App() {
   const [symptoms, setSymptoms] = useState("");
@@ -15,7 +16,7 @@ function App() {
     try {
       const res = await analyzeSymptoms({
         symptoms: symptoms,
-        pregnancy_month: Number(month)
+        pregnancy_month: Number(month),
       });
       setResult(res.data);
     } catch (err) {
@@ -27,10 +28,10 @@ function App() {
   };
 
   return (
-    <div style={{ padding: 20, fontFamily: "sans-serif" }}>
+    <div className="app-container">
       <h2>🤰 Mobile Midwife AI</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-card">
         <input
           type="text"
           placeholder="Symptoms (comma separated)"
@@ -38,7 +39,6 @@ function App() {
           onChange={(e) => setSymptoms(e.target.value)}
           required
         />
-        <br /><br />
 
         <input
           type="number"
@@ -47,7 +47,6 @@ function App() {
           onChange={(e) => setMonth(e.target.value)}
           required
         />
-        <br /><br />
 
         <button type="submit" disabled={loading}>
           {loading ? "Analyzing..." : "Analyze"}
@@ -55,11 +54,27 @@ function App() {
       </form>
 
       {result && (
-        <div style={{ marginTop: 20 }}>
+        <div className="result-card">
           <h3>🧠 Result</h3>
-          <p><b>Risk:</b> {result.risk_level}</p>
-          <p><b>Advice:</b> {result.advice}</p>
-          <p><b>Explanation:</b> {result.explanation}</p>
+
+          <p>
+            <b>Risk:</b>{" "}
+            <span className={`risk ${result.risk_level.toLowerCase()}`}>
+              {result.risk_level}
+            </span>
+          </p>
+
+          <p>
+            <b>Advice:</b> {result.advice}
+          </p>
+
+          <p>
+            <b>Explanation:</b> {result.explanation}
+          </p>
+
+          <p className="disclaimer">
+            ⚠️ This tool does not replace professional medical advice.
+          </p>
         </div>
       )}
     </div>
