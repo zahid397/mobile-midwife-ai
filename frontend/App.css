@@ -1,0 +1,42 @@
+.result-card {
+  background: #ffffff;
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.risk {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.risk.low {
+  color: #2ecc71;
+}
+
+.risk.medium {
+  color: #f1c40f;
+}
+
+.risk.high {
+  color: #e74c3c;
+}
+
+button {
+  background: linear-gradient(135deg, #0bbcd6, #00e6b8);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
