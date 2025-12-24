@@ -102,7 +102,7 @@ The system prioritizes **safety, predictability, and accessibility**.
 - AI-assisted explanation (with strict guardrails)
 
 ---
-
+https://www.linkedin.com/in/md-zahid-hasan-7b15ba20b 
 ## 🏆 Use Case
 
 This project was developed for:
@@ -116,7 +116,7 @@ This project was developed for:
 
 **Zahid Hasan**  
 Solo Builder | AI & Software Developer  
-LinkedIn: (add your link here)
+LinkedIn: 
 
 ---
 
