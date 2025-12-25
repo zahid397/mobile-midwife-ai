@@ -1,36 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="bn">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+    <meta name="description" content="বাংলাদেশের মায়েদের জন্য এআই চালিত গর্ভাবস্থা ঝুঁকি সচেতনতা অ্যাপ" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0f2027" />
+    <title>Mobile Midwife | ডিজিটাল ধাত্রী সেবা</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤰</text></svg>">
 
-    <title>Mobile Midwife AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- SEO / Pitch friendly -->
-    <meta
-      name="description"
-      content="AI-assisted early risk screening system for maternal health in rural areas."
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Optional: Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Hind Siliguri"', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                50: '#fdf2f8',
+                100: '#fce7f3',
+                500: '#ec4899', 
+                600: '#db2777', 
+                700: '#be185d',
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      body {
+        background-color: #fdf2f8;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased; /* ফন্ট আরও শার্প দেখাবে */
+      }
+    </style>
   </head>
-
-  <body style="margin: 0; font-family: 'Inter', sans-serif;">
-    <!-- Background Canvas -->
-    <canvas id="bg-canvas"></canvas>
-
-    <!-- React Root -->
+  
+  <body>
     <div id="root"></div>
-
-    <!-- Canvas Animation Script -->
-    <script src="%PUBLIC_URL%/canvas.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
