@@ -1,0 +1,21 @@
+/* 🔥 GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🚫 FORCE REMOVE ANY DARK / ANIMATED BACKGROUND */
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fdf2f8 !important;
+  background-image: none !important;
+  overflow-x: hidden;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+
+/* 🚫 KILL ANY CANVAS / PARTICLE BACKGROUND */
+canvas {
+  display: none !important;
+}
