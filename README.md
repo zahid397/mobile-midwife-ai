@@ -33,7 +33,7 @@ In Bangladesh and similar regions:
 
 ### 🌐 Frontend (Vercel)
 👉 **Live App:**  
-https://vercel.com/zahid-hasan-s-projects-178655a9/mobile-midwife-ai  
+https://mobile-midwife-ai.vercel.app/ 
 
 *(React-based UI for user interaction)*
 
