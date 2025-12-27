@@ -67,7 +67,7 @@ The system prioritizes **safety, predictability, and accessibility**.
 
 ## 🚀 Live Demo
 
-- **Frontend:** https://mobile-midwife-ai.vercel.app  
+- **Frontend:** https://mobile-midwife-ai-vl5s-5ze9lflmi.vercel.app/  
 - **Backend API:** https://mobile-midwife-ai.onrender.com  
 - **Swagger Docs:** https://mobile-midwife-ai.onrender.com/docs
 
