@@ -51,25 +51,27 @@ const Home = () => {
     HIGH: {
       color: "text-red-700",
       bg: "bg-red-50 border-red-200",
-      icon: <AlertOctagon />,
+      icon: <AlertOctagon size={22} />,
       label: "HIGH (উচ্চ ঝুঁকি)",
     },
     MEDIUM: {
       color: "text-orange-700",
       bg: "bg-orange-50 border-orange-200",
-      icon: <AlertTriangle />,
+      icon: <AlertTriangle size={22} />,
       label: "MEDIUM (মাঝারি ঝুঁকি)",
     },
     LOW: {
       color: "text-green-700",
       bg: "bg-green-50 border-green-200",
-      icon: <CheckCircle />,
+      icon: <CheckCircle size={22} />,
       label: "LOW (ঝুঁকি নেই)",
     },
   };
 
+  const ui = result ? riskUI[result.risk] || riskUI.LOW : null;
+
   return (
-    <div className="min-h-screen flex justify-center items-start pt-10 px-4">
+    <div className="min-h-screen bg-pink-50 flex justify-center items-start pt-8 px-4 pb-24">
       <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-6">
 
         {/* Header */}
@@ -88,7 +90,7 @@ const Home = () => {
           <Activity size={18} /> উপসর্গ লিখুন
         </label>
         <textarea
-          className="w-full p-4 rounded-xl border bg-gray-50 mb-4"
+          className="w-full p-4 rounded-xl border bg-gray-50 mb-4 focus:outline-none focus:ring-2 focus:ring-pink-300"
           rows="3"
           placeholder="যেমন: মাথা ব্যথা, জ্বর"
           value={symptoms}
@@ -100,9 +102,9 @@ const Home = () => {
           <Calendar size={18} /> গর্ভাবস্থার মাস
         </label>
         <select
-          className="w-full p-3 rounded-xl border bg-gray-50 mb-6"
+          className="w-full p-3 rounded-xl border bg-gray-50 mb-6 focus:outline-none focus:ring-2 focus:ring-purple-300"
           value={month}
-          onChange={(e) => setMonth(e.target.value)}
+          onChange={(e) => setMonth(Number(e.target.value))}
         >
           <option value="">মাস নির্বাচন করুন</option>
           {[1,2,3,4,5,6,7,8,9].map(m => (
@@ -110,7 +112,7 @@ const Home = () => {
           ))}
         </select>
 
-        {/* 🔥 BUTTON (NO CSS CAN HIDE THIS) */}
+        {/* Button */}
         <button
           onClick={handleAnalysis}
           disabled={loading}
@@ -118,33 +120,33 @@ const Home = () => {
             display: "block",
             width: "100%",
             padding: "16px",
+            marginTop: "8px",
             background: "linear-gradient(to right, #ec4899, #a855f7)",
             color: "white",
             fontWeight: "700",
             fontSize: "18px",
             borderRadius: "14px",
             border: "none",
+            cursor: loading ? "not-allowed" : "pointer",
+            opacity: loading ? 0.7 : 1,
           }}
         >
           {loading ? "বিশ্লেষণ করা হচ্ছে..." : "পরামর্শ নিন"}
         </button>
 
         {/* Result */}
-        {result && (() => {
-          const ui = riskUI[result.risk];
-          return (
-            <div className={`mt-6 p-4 rounded-xl border ${ui.bg}`}>
-              <div className={`flex gap-2 font-bold ${ui.color}`}>
-                {ui.icon} {ui.label}
-              </div>
-              <p className="mt-2 font-semibold">পরামর্শ:</p>
-              <p>{result.advice}</p>
-              <p className="text-sm text-gray-600">
-                কারণ: {result.explanation}
-              </p>
+        {result && (
+          <div className={`mt-6 p-4 rounded-xl border ${ui.bg}`}>
+            <div className={`flex gap-2 font-bold ${ui.color}`}>
+              {ui.icon} {ui.label}
             </div>
-          );
-        })()}
+            <p className="mt-2 font-semibold">পরামর্শ:</p>
+            <p>{result.advice}</p>
+            <p className="text-sm text-gray-600 mt-1">
+              কারণ: {result.explanation}
+            </p>
+          </div>
+        )}
 
         <p className="text-xs text-center text-gray-400 mt-6">
           ⚠ এটি ডাক্তারের বিকল্প নয়
