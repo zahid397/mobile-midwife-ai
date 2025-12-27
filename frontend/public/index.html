@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bn">
   <head>
     <meta charset="UTF-8" />
@@ -8,72 +8,48 @@
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
 
-    <meta
-      name="description"
-      content="বাংলাদেশের মায়েদের জন্য এআই চালিত গর্ভাবস্থা ঝুঁকি সচেতনতা অ্যাপ"
-    />
+    <title>Mobile Midwife AI</title>
 
-    <title>Mobile Midwife AI | ডিজিটাল ধাত্রী</title>
-
-    <!-- Emoji favicon -->
+    <!-- Favicon -->
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤰</text></svg>"
     />
 
-    <!-- Tailwind -->
+    <!-- ✅ Tailwind CDN (VERY IMPORTANT) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Bangla Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Tailwind config -->
+    <!-- Tailwind Custom Config -->
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['"Hind Siliguri"', 'sans-serif'],
-            },
-            colors: {
-              brand: {
-                light: '#fdf2f8',
-                primary: '#ec4899',
-                dark: '#be185d',
-              },
+              sans: ['"Hind Siliguri"', "sans-serif"],
             },
           },
         },
       };
     </script>
 
-    <!-- Global Style (NO animation, NO canvas) -->
     <style>
-      html,
       body {
         margin: 0;
-        padding: 0;
-        min-height: 100%;
-        font-family: 'Hind Siliguri', sans-serif;
-        background-color: #fdf2f8 !important;
-        background-image: none !important;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      /* Kill any injected canvas or animation */
-      canvas {
-        display: none !important;
+        font-family: "Hind Siliguri", sans-serif;
+        background-color: #fdf2f8;
       }
     </style>
   </head>
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
