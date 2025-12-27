@@ -1,126 +1,114 @@
-# 🤰 Midwarefiy (Mobile Midwife AI)
+দোস্ত ❤️
+নিচে ready-to-use GitHub README.md দিচ্ছি — copy করে সরাসরি README.md ফাইলে paste করলেই হবে।
+Pitch + demo দুটোতেই vibe আসবে 🔥
 
-Midwarefiy is a lightweight, web-based maternal health support application designed to help identify **early pregnancy risk signals** in low-resource and rural settings.
 
-⚠️ This tool does **NOT replace doctors or professional medical advice**.  
-It is intended for **early risk awareness and timely referral only**.
 
----
 
-## 🌍 Problem Statement
+# 🤰 Mobile Midwife AI  
+### AI-powered Pregnancy Risk Awareness Assistant  
 
-In many parts of Bangladesh and other developing regions:
-
-- Pregnant women lack immediate access to doctors or midwives
-- Symptoms are often misunderstood or ignored
-- Online misinformation creates confusion
-- Delay in recognizing danger signs increases maternal risk
+**Mobile Midwife AI** is a lightweight, mobile-first web application designed to help pregnant mothers get **early risk awareness** based on their symptoms.  
+This project focuses on **accessibility, simplicity, and Bangla-first UX** for real-world impact.
 
 ---
 
-## 💡 Solution
+## 🌟 Motivation
+In many rural and semi-urban areas, pregnant women often ignore early symptoms due to lack of awareness or access to doctors.  
+**Mobile Midwife AI** aims to act as a **digital first step**, not a replacement for doctors.
 
-Midwarefiy provides:
+> ⚠️ This app is for awareness only — not a medical diagnosis.
 
-- Simple symptom input
-- Pregnancy month consideration
-- Immediate risk categorization:
-  - 🟢 LOW
-  - 🟡 MEDIUM
-  - 🔴 HIGH
-- Clear, easy-to-understand advice
-- Ethical and explainable logic
 
-The system prioritizes **safety, predictability, and accessibility**.
 
----
+## 🚀 Features
+- 📝 Symptom input in **Bangla / English**
+- 📅 Pregnancy month selection
+- 🧠 AI-like risk analysis (Low / Medium / High)
+- 🎨 Clean, mobile-friendly UI (inspired by real apps like bKash)
+- ⚡ Fast & lightweight (React + Tailwind)
+- 🌐 Deployed on **Vercel**
 
-## 🧠 How It Works
 
-1. User enters symptoms (text-based)
-2. Selects pregnancy month (1–9)
-3. Backend evaluates inputs using **rule-based medical logic**
-4. The app returns:
-   - Risk level
-   - Advice
-   - Explanation
 
-> No generative AI is used in the current MVP to avoid hallucination and ensure medical safety.
+## 🧪 Risk Logic (Demo Version)
+- **HIGH risk** → bleeding, severe pain  
+- **MEDIUM risk** → fever, headache, vomiting  
+- **LOW risk** → no critical symptoms detected  
 
----
+> Logic is rule-based for demo purposes (can be upgraded to ML / LLM).
+
+
+
+## 🖥️ Live Demo
+🔗 **Live App:**  
+👉 https://vercel.com/zahid-hasan-s-projects-178655a9/mobile-midwife-ai
+
+
 
 ## 🛠️ Tech Stack
-
-### Frontend
-- React
-- Deployed on **Vercel**
-
-### Backend
-- FastAPI (Python)
-- Deployed on **Render**
-
-### Logic
-- Rule-based expert system
-- Easily extendable to AI/ML in future
+- **Frontend:** React.js
+- **Styling:** Tailwind CSS
+- **Icons:** Lucide React
+- **Deployment:** Vercel
 
 ---
 
-## 🚀 Live Demo
+## 📂 Project Structure
 
-- **Frontend:** https://mobile-midwife-ai-vl5s-5ze9lflmi.vercel.app/  
-- **Backend API:** https://mobile-midwife-ai.onrender.com  
-- **Swagger Docs:** https://mobile-midwife-ai.onrender.com/docs
+frontend/ ├── src/ │   ├── pages/ │   │   └── Home.jsx │   ├── components/ │   │   ├── InputForm.jsx │   │   ├── RiskBadge.jsx │   │   └── VoiceOutput.jsx │   ├── App.js │   ├── index.js │   └── index.css └── public/
 
----
 
-## 🧪 Sample Test Inputs
 
-| Symptoms | Pregnancy Month | Expected Risk |
-|--------|-----------------|---------------|
-| nausea, fatigue | 3 | LOW |
-| headache, swelling | 6 | MEDIUM |
-| heavy bleeding, severe pain | 8 | HIGH |
+## 🧑‍💻 How to Run Locally
+```bash
+git clone https://github.com/zahid397/mobile-midwife-ai.git
+cd mobile-midwife-ai/frontend
+npm install
+npm start
 
----
 
-## ⚖️ Ethical Considerations
 
-- No diagnosis is provided
-- Clear medical disclaimer included
-- Encourages hospital referral for high-risk cases
-- Avoids overdependence on AI
-- Focused on maternal safety
 
----
+🏁 Pitch Highlight
 
-## 🔮 Future Roadmap
+🎯 Problem-driven solution
 
-- Bangla language support
-- Voice input/output
-- Offline-first version
-- Integration with community health workers
-- AI-assisted explanation (with strict guardrails)
+👩‍🍼 Social impact focus
 
----
-https://www.linkedin.com/in/md-zahid-hasan-7b15ba20b 
-## 🏆 Use Case
+📱 Mobile-first design
 
-This project was developed for:
-- Academic demonstrations
-- Pitch competitions
-- Community health innovation showcases
+🇧🇩 Bangla language support
+
+🚀 Scalable to real AI backend
+
+
+
+
+
+🤝 Team
+
+Zahid Hasan
+Creator & Developer
+
+> “আমি প্রমাণ দিয়ে কথা বলি।”
+
+
+
 
 ---
 
-## 👤 Author
+📜 Disclaimer
 
-**Zahid Hasan**  
-Solo Builder | AI & Software Developer  
-LinkedIn: 
+This application does not provide medical advice.
+Always consult a qualified doctor for medical decisions.
 
----
 
-## 📜 Disclaimer
 
-Midwarefiy is an awareness and support tool.  
-Always consult qualified healthcare professionals for medical decisions.
+
+❤️ Final Note
+
+> Some paths are lonely.
+Some ideas are misunderstood.
+But real impact is always built by those who walk alone first.
+
