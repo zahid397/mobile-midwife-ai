@@ -1,10 +1,3 @@
-দোস্ত ❤️
-নিচে ready-to-use GitHub README.md দিচ্ছি — copy করে সরাসরি README.md ফাইলে paste করলেই হবে।
-Pitch + demo দুটোতেই vibe আসবে 🔥
-
-
-
-
 # 🤰 Mobile Midwife AI  
 ### AI-powered Pregnancy Risk Awareness Assistant  
 
