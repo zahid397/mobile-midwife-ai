@@ -1,131 +1,130 @@
 # 🤰 Mobile Midwife AI  
-### AI-powered Pregnancy Risk Awareness Assistant  
+### AI-powered Pregnancy Risk Awareness System
 
-**Mobile Midwife AI** is a lightweight, mobile-first web application designed to help pregnant mothers get **early risk awareness** based on their symptoms.  
-This project focuses on **accessibility, simplicity, and Bangla-first UX** for real-world impact.
+**Mobile Midwife AI** is a mobile-first, Bangla-friendly web application designed to provide **early pregnancy risk awareness** for mothers, especially in low-resource and rural settings.
+
+⚠️ This system is for **awareness and early guidance only** — it does **not replace doctors or medical diagnosis**.
 
 ---
 
 ## 🌟 Motivation
-In many rural and semi-urban areas, pregnant women often ignore early symptoms due to lack of awareness or access to doctors.  
-**Mobile Midwife AI** aims to act as a **digital first step**, not a replacement for doctors.
+In Bangladesh and similar regions:
+- Many pregnant mothers lack regular access to doctors
+- Early danger signs are often ignored or misunderstood
+- Language and usability barriers reduce access to digital health tools
 
-> ⚠️ This app is for awareness only — not a medical diagnosis.
+**Mobile Midwife AI** aims to act as a **digital first step** — helping mothers recognize risk early and seek timely medical help.
 
+> “I speak with proof, not noise.”
 
+---
 
 ## 🚀 Features
-- 📝 Symptom input in **Bangla / English**
+- 📝 Symptom input (Bangla / English)
 - 📅 Pregnancy month selection
-- 🧠 AI-like risk analysis (Low / Medium / High)
-- 🎨 Clean, mobile-friendly UI (inspired by real apps like bKash)
-- ⚡ Fast & lightweight (React + Tailwind)
-- 🌐 Deployed on **Vercel**
+- 🧠 Risk classification: **LOW / MEDIUM / HIGH**
+- 🎨 Clean, mobile-first UI (inspired by real apps like bKash)
+- 🔗 Separated frontend & backend (production-style architecture)
+- 📄 Fully documented backend API (Swagger)
 
+---
 
+## 🖥️ Live Application Links
 
-## 🧪 Risk Logic (Demo Version)
-- **HIGH risk** → bleeding, severe pain  
-- **MEDIUM risk** → fever, headache, vomiting  
-- **LOW risk** → no critical symptoms detected  
+### 🌐 Frontend (Vercel)
+👉 **Live App:**  
+https://vercel.com/zahid-hasan-s-projects-178655a9/mobile-midwife-ai  
 
-> Logic is rule-based for demo purposes (can be upgraded to ML / LLM).
+*(React-based UI for user interaction)*
 
+---
 
+### 🔗 Backend (Render)
+👉 **API Base URL:**  
+https://mobile-midwife-ai.onrender.com/
 
-## 🖥️ Live Demo
-🔗 **Live App:**  
-👉 https://vercel.com/zahid-hasan-s-projects-178655a9/mobile-midwife-ai
+👉 **API Documentation (Swagger UI):**  
+https://mobile-midwife-ai.onrender.com/docs  
 
+*(FastAPI backend for risk analysis & future AI integration)*
 
+---
+
+## 🧠 How It Works (Demo Logic)
+1. User enters symptoms
+2. Selects pregnancy month
+3. Backend analyzes inputs using rule-based logic
+4. System returns:
+   - Risk level
+   - Advice
+   - Explanation
+
+### 🧪 Risk Rules (Demo)
+- **HIGH:** bleeding, severe pain  
+- **MEDIUM:** fever, headache, vomiting  
+- **LOW:** no critical symptoms detected  
+
+> Rule-based logic is used for safety and transparency.  
+> Can be upgraded to ML / LLM in future.
+
+---
+
+## 🏗️ System Architecture
+
+User (Mobile Browser) | v Frontend (React – Vercel) | v REST API Calls | v Backend (FastAPI – Render) | v Risk Logic / Future AI Engine
+
+This separation ensures:
+- Scalability
+- Clean architecture
+- Easy AI upgrades without breaking UI
+
+---
 
 ## 🛠️ Tech Stack
-- **Frontend:** React.js
-- **Styling:** Tailwind CSS
-- **Icons:** Lucide React
-- **Deployment:** Vercel
+
+### Frontend
+- React.js
+- Tailwind CSS
+- Lucide Icons
+- Deployed on **Vercel**
+
+### Backend
+- FastAPI (Python)
+- Swagger / OpenAPI Docs
+- Deployed on **Render**
 
 ---
 
----
+## 🧑‍💻 Project Structure
 
-## 🔗 Backend (API Server)
-The backend of **Mobile Midwife AI** is deployed separately to ensure scalability and clean architecture.
-
-- **Backend Framework:** FastAPI (Python)
-- **Deployment Platform:** Render
-- **Purpose:**  
-  - Symptom analysis API  
-  - Risk classification logic  
-  - Future AI/ML integration ready  
-
-🔗 **Live Backend API:**  
-👉 https://mobile-midwife-ai.onrender.com/
-*(replace with your actual Render URL if different)*
+mobile-midwife-ai/ ├── frontend/ │   ├── src/ │   │   ├── pages/ │   │   │   └── Home.jsx │   │   ├── components/ │   │   │   ├── InputForm.jsx │   │   │   ├── RiskBadge.jsx │   │   │   └── VoiceOutput.jsx │   │   ├── App.js │   │   ├── index.js │   │   └── index.css │   └── public/ └── backend/ └── main.py (FastAPI)
 
 ---
 
-## 🧠 System Architecture
-
-
-
-
-
-## 📂 Project Structure
-
-frontend/ ├── src/ │   ├── pages/ │   │   └── Home.jsx │   ├── components/ │   │   ├── InputForm.jsx │   │   ├── RiskBadge.jsx │   │   └── VoiceOutput.jsx │   ├── App.js │   ├── index.js │   └── index.css └── public/
-
-
-
-## 🧑‍💻 How to Run Locally
-```bash
-git clone https://github.com/zahid397/mobile-midwife-ai.git
-cd mobile-midwife-ai/frontend
-npm install
-npm start
-
-
-
-
-🏁 Pitch Highlight
-
-🎯 Problem-driven solution
-
-👩‍🍼 Social impact focus
-
-📱 Mobile-first design
-
-🇧🇩 Bangla language support
-
-🚀 Scalable to real AI backend
-
-
-
-
-
-🤝 Team
-
-Zahid Hasan
-Creator & Developer
-
-> “আমি প্রমাণ দিয়ে কথা বলি।”
-
-
-
+## 🎤 Pitch Highlight
+- 🎯 Real social problem
+- 📱 Mobile-first & Bangla-first
+- 🧠 Transparent risk logic
+- 🌍 Ready for real-world deployment
+- 🚀 Scalable to AI-powered healthcare
 
 ---
 
-📜 Disclaimer
+## 👤 Author
+**Zahid Hasan**  
+Solo Developer & Builder  
 
-This application does not provide medical advice.
-Always consult a qualified doctor for medical decisions.
+> “আমার রাস্তা আলাদা — আমি প্রমাণ দিয়ে কথা বলি।”
 
+---
 
+## 📜 Disclaimer
+This application does **not provide medical advice**.  
+Always consult qualified healthcare professionals for medical decisions.
 
+---
 
-❤️ Final Note
-
-> Some paths are lonely.
-Some ideas are misunderstood.
-But real impact is always built by those who walk alone first.
-
+## ❤️ Final Note
+> Some paths are lonely.  
+> Some ideas are misunderstood.  
+> But real impact is always built by those who walk alone first.
