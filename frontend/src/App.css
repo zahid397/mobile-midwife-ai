@@ -1,6 +1,6 @@
-/* App.css - Final Version */
+/* App.css - Final Version (Pitch Safe, No Animation) */
 
-/* কন্টেইনার সেটআপ যা স্ক্রিনের মাঝখানে অ্যাপটি রাখবে */
+/* কন্টেইনার সেটআপ */
 .app-container {
   padding: 20px;
   font-family: 'Hind Siliguri', sans-serif;
@@ -10,10 +10,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #fdf2f8; /* পিঙ্কিশ হোয়াইট ব্যাকগ্রাউন্ড */
+  background-color: #fdf2f8;
 }
 
-/* মেইন কার্ড ডিজাইন */
+/* মেইন কার্ড */
 .form-card {
   background: #ffffff;
   padding: 24px;
@@ -22,7 +22,7 @@
   border: 1px solid #fce7f3;
 }
 
-/* টাইটেল এবং সাবটাইটেল */
+/* হেডার */
 .header-section {
   text-align: center;
   margin-bottom: 24px;
@@ -34,7 +34,7 @@
   margin-bottom: 8px;
 }
 
-/* ইনপুট ফিল্ড লেবেল */
+/* লেবেল */
 label {
   display: block;
   margin-bottom: 8px;
@@ -43,7 +43,7 @@ label {
   font-size: 15px;
 }
 
-/* ইনপুট এবং টেক্সট এরিয়া */
+/* ইনপুট */
 input, textarea {
   width: 100%;
   padding: 14px;
@@ -53,7 +53,6 @@ input, textarea {
   background-color: #f9fafb;
   font-family: inherit;
   box-sizing: border-box;
-  transition: all 0.3s ease;
   font-size: 16px;
 }
 
@@ -64,7 +63,7 @@ input:focus, textarea:focus {
   box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.1);
 }
 
-/* বাটন ডিজাইন */
+/* বাটন */
 button {
   width: 100%;
   background: linear-gradient(135deg, #ec4899, #db2777);
@@ -75,28 +74,17 @@ button {
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
   margin-top: 10px;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
-}
-
-button:active {
-  transform: scale(0.98);
 }
 
 button:disabled {
   background: #d1d5db;
   cursor: not-allowed;
-  transform: none;
   box-shadow: none;
 }
 
-/* রেজাল্ট কার্ড */
+/* রেজাল্ট কার্ড (NO ANIMATION) */
 .result-card {
   background: #ffffff;
   margin-top: 24px;
@@ -104,7 +92,6 @@ button:disabled {
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   border-left: 6px solid #ec4899;
-  animation: slideIn 0.5s ease-out;
 }
 
 .result-card h3 {
@@ -113,7 +100,7 @@ button:disabled {
   color: #1f2937;
 }
 
-/* ঝুঁকি অনুযায়ী কালার কোড */
+/* ঝুঁকি কালার */
 .risk-low {
   border-left-color: #10b981;
   background-color: #f0fdf4;
@@ -124,16 +111,16 @@ button:disabled {
   background-color: #fef2f2;
 }
 
-/* এনিমেশন */
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ফুটার সেকশন */
+/* ফুটার */
 .footer-text {
   text-align: center;
   margin-top: 30px;
   font-size: 12px;
   color: #9ca3af;
+}
+
+/* 🚫 Global Safety: No animation, no transition */
+* {
+  animation: none !important;
+  transition: none !important;
 }
