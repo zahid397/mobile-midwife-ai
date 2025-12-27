@@ -61,65 +61,56 @@ const Home = () => {
     LOW: {
       color: "text-green-700",
       bg: "bg-green-50",
-      border: "border-green-200",
       icon: <CheckCircle />,
       label: "LOW (ঝুঁকি নেই)",
     },
     MEDIUM: {
       color: "text-orange-700",
       bg: "bg-orange-50",
-      border: "border-orange-200",
       icon: <AlertTriangle />,
       label: "MEDIUM (মাঝারি ঝুঁকি)",
     },
     HIGH: {
       color: "text-red-700",
       bg: "bg-red-50",
-      border: "border-red-200",
       icon: <AlertOctagon />,
       label: "HIGH (উচ্চ ঝুঁকি)",
     },
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-100 flex flex-col items-center px-4 py-6 font-sans">
-
-      {/* Header */}
-      <div className="text-center mb-6">
-        <div className="bg-white p-4 rounded-full shadow inline-block mb-3">
-          <span className="text-4xl">🤰</span>
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-100 flex justify-center px-4 pt-8 pb-40">
+      <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-6 pb-24">
+        {/* Header */}
+        <div className="text-center mb-6">
+          <div className="bg-pink-100 p-3 rounded-full inline-block mb-2">
+            <span className="text-4xl">🤰</span>
+          </div>
+          <h1 className="text-2xl font-bold text-pink-700">
+            মোবাইল ধাত্রী
+          </h1>
+          <p className="text-sm text-gray-500">
+            গর্ভাবস্থার প্রাথমিক ঝুঁকি সচেতনতা
+          </p>
         </div>
-        <h1 className="text-2xl font-bold text-pink-700">
-          মোবাইল ধাত্রী
-        </h1>
-        <p className="text-gray-600 text-sm">
-          গর্ভাবস্থার প্রাথমিক ঝুঁকি সচেতনতা সহকারী
-        </p>
-      </div>
-
-      {/* Card */}
-      <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-6 mb-24">
 
         {/* Symptoms */}
-        <label className="block text-sm font-semibold mb-2 flex items-center gap-2">
-          <Activity size={18} className="text-pink-500" />
-          উপসর্গ লিখুন
+        <label className="font-semibold flex items-center gap-2 mb-2">
+          <Activity size={18} /> উপসর্গ লিখুন
         </label>
         <textarea
-          className="w-full p-4 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-pink-300 outline-none mb-4"
-          rows="3"
+          className="w-full p-3 rounded-xl border bg-gray-50 mb-4"
           placeholder="যেমন: মাথা ব্যথা, জ্বর"
           value={symptoms}
           onChange={(e) => setSymptoms(e.target.value)}
         />
 
         {/* Month */}
-        <label className="block text-sm font-semibold mb-2 flex items-center gap-2">
-          <Calendar size={18} className="text-purple-500" />
-          গর্ভাবস্থার মাস
+        <label className="font-semibold flex items-center gap-2 mb-2">
+          <Calendar size={18} /> গর্ভাবস্থার মাস
         </label>
         <select
-          className="w-full p-3 border rounded-xl bg-gray-50 mb-6"
+          className="w-full p-3 rounded-xl border bg-gray-50 mb-6"
           value={month}
           onChange={(e) => setMonth(e.target.value)}
         >
@@ -131,37 +122,28 @@ const Home = () => {
 
         {/* Result */}
         {result && (
-          <div
-            className={`${riskUI[result.risk].bg} ${riskUI[result.risk].border} border p-4 rounded-xl mb-4`}
-          >
+          <div className={`p-4 rounded-xl ${riskUI[result.risk].bg}`}>
             <div className={`flex items-center gap-2 font-bold ${riskUI[result.risk].color}`}>
               {riskUI[result.risk].icon}
               {riskUI[result.risk].label}
             </div>
-            <p className="mt-2 text-sm">
-              <b>পরামর্শ:</b> {result.advice}
-            </p>
-            <p className="text-xs text-gray-600 mt-1">
+            <p className="mt-2">{result.advice}</p>
+            <p className="text-sm text-gray-600 mt-1">
               কারণ: {result.explanation}
             </p>
           </div>
         )}
       </div>
 
-      {/* FIXED BUTTON */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white p-4 shadow-xl">
+      {/* Fixed Button */}
+      <div className="fixed bottom-4 left-0 right-0 px-4">
         <button
           onClick={handleAnalysis}
           disabled={loading}
-          className="w-full py-4 rounded-xl text-white font-bold text-lg
-          bg-gradient-to-r from-pink-500 to-purple-600
-          hover:shadow-lg transition disabled:opacity-60 block"
+          className="w-full max-w-md mx-auto py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold rounded-xl shadow-lg"
         >
           {loading ? "বিশ্লেষণ করা হচ্ছে..." : "পরামর্শ নিন"}
         </button>
-        <p className="text-xs text-center text-gray-500 mt-2">
-          ⚠ এটি ডাক্তারের বিকল্প নয়
-        </p>
       </div>
     </div>
   );
