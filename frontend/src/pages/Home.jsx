@@ -15,41 +15,31 @@ const Home = () => {
 
   const handleAnalysis = () => {
     if (!symptoms.trim()) {
-      alert("দয়া করে উপসর্গ লিখুন");
+      alert("উপসর্গ লিখুন");
       return;
     }
     if (!month) {
-      alert("দয়া করে গর্ভাবস্থার মাস নির্বাচন করুন");
+      alert("মাস নির্বাচন করুন");
       return;
     }
 
     setLoading(true);
 
     setTimeout(() => {
-      const text = symptoms.toLowerCase();
-
       let risk = "LOW";
       let advice = "সবকিছু স্বাভাবিক মনে হচ্ছে। বিশ্রাম নিন।";
-      let explanation = "গুরুতর কোনো লক্ষণ পাওয়া যায়নি।";
+      let explanation = "গুরুতর লক্ষণ নেই।";
 
-      if (
-        text.includes("রক্ত") ||
-        text.includes("bleeding") ||
-        text.includes("ব্যথা") ||
-        text.includes("pain")
-      ) {
+      const text = symptoms.toLowerCase();
+
+      if (text.includes("রক্ত") || text.includes("pain")) {
         risk = "HIGH";
-        advice = "দয়া করে দ্রুত নিকটস্থ হাসপাতালে যান।";
-        explanation = "এটি উচ্চ ঝুঁকির লক্ষণ।";
-      } else if (
-        text.includes("জ্বর") ||
-        text.includes("fever") ||
-        text.includes("headache") ||
-        text.includes("বমি")
-      ) {
+        advice = "দ্রুত হাসপাতালে যান।";
+        explanation = "উচ্চ ঝুঁকির লক্ষণ।";
+      } else if (text.includes("জ্বর") || text.includes("headache")) {
         risk = "MEDIUM";
-        advice = "ডাক্তারের পরামর্শ নিন এবং পর্যবেক্ষণে থাকুন।";
-        explanation = "এটি মাঝারি ঝুঁকির লক্ষণ।";
+        advice = "ডাক্তারের পরামর্শ নিন।";
+        explanation = "মাঝারি ঝুঁকি।";
       }
 
       setResult({ risk, advice, explanation });
@@ -57,31 +47,29 @@ const Home = () => {
     }, 1200);
   };
 
-  const getRiskUI = (risk) => {
-    if (risk === "HIGH")
-      return {
-        color: "text-red-700",
-        bg: "bg-red-50 border-red-200",
-        icon: <AlertOctagon />,
-        label: "HIGH (উচ্চ ঝুঁকি)",
-      };
-    if (risk === "MEDIUM")
-      return {
-        color: "text-orange-700",
-        bg: "bg-orange-50 border-orange-200",
-        icon: <AlertTriangle />,
-        label: "MEDIUM (মাঝারি ঝুঁকি)",
-      };
-    return {
+  const riskUI = {
+    HIGH: {
+      color: "text-red-700",
+      bg: "bg-red-50 border-red-200",
+      icon: <AlertOctagon />,
+      label: "HIGH (উচ্চ ঝুঁকি)",
+    },
+    MEDIUM: {
+      color: "text-orange-700",
+      bg: "bg-orange-50 border-orange-200",
+      icon: <AlertTriangle />,
+      label: "MEDIUM (মাঝারি ঝুঁকি)",
+    },
+    LOW: {
       color: "text-green-700",
       bg: "bg-green-50 border-green-200",
       icon: <CheckCircle />,
       label: "LOW (ঝুঁকি নেই)",
-    };
+    },
   };
 
   return (
-    <div className="min-h-screen bg-pink-50 flex justify-center px-4 pt-6 pb-32">
+    <div className="min-h-screen flex justify-center items-start pt-10 px-4">
       <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-6">
 
         {/* Header */}
@@ -90,15 +78,14 @@ const Home = () => {
           <h1 className="text-2xl font-bold text-pink-700">
             মোবাইল ধাত্রী
           </h1>
-          <p className="text-gray-500 text-sm mt-1">
-            গর্ভাবস্থার প্রাথমিক ঝুঁকি সহকারী
+          <p className="text-sm text-gray-500">
+            গর্ভাবস্থার ঝুঁকি সহকারী
           </p>
         </div>
 
         {/* Symptoms */}
-        <label className="font-semibold flex items-center gap-2 mb-2">
-          <Activity size={18} className="text-pink-500" />
-          উপসর্গ লিখুন
+        <label className="font-semibold flex gap-2 mb-2">
+          <Activity size={18} /> উপসর্গ লিখুন
         </label>
         <textarea
           className="w-full p-4 rounded-xl border bg-gray-50 mb-4"
@@ -109,9 +96,8 @@ const Home = () => {
         />
 
         {/* Month */}
-        <label className="font-semibold flex items-center gap-2 mb-2">
-          <Calendar size={18} className="text-purple-500" />
-          গর্ভাবস্থার মাস
+        <label className="font-semibold flex gap-2 mb-2">
+          <Calendar size={18} /> গর্ভাবস্থার মাস
         </label>
         <select
           className="w-full p-3 rounded-xl border bg-gray-50 mb-6"
@@ -124,41 +110,45 @@ const Home = () => {
           ))}
         </select>
 
-        {/* RESULT */}
+        {/* 🔥 BUTTON (NO CSS CAN HIDE THIS) */}
+        <button
+          onClick={handleAnalysis}
+          disabled={loading}
+          style={{
+            display: "block",
+            width: "100%",
+            padding: "16px",
+            background: "linear-gradient(to right, #ec4899, #a855f7)",
+            color: "white",
+            fontWeight: "700",
+            fontSize: "18px",
+            borderRadius: "14px",
+            border: "none",
+          }}
+        >
+          {loading ? "বিশ্লেষণ করা হচ্ছে..." : "পরামর্শ নিন"}
+        </button>
+
+        {/* Result */}
         {result && (() => {
-          const ui = getRiskUI(result.risk);
+          const ui = riskUI[result.risk];
           return (
-            <div className={`mb-6 p-4 rounded-xl border ${ui.bg}`}>
-              <div className={`flex items-center gap-2 font-bold ${ui.color}`}>
+            <div className={`mt-6 p-4 rounded-xl border ${ui.bg}`}>
+              <div className={`flex gap-2 font-bold ${ui.color}`}>
                 {ui.icon} {ui.label}
               </div>
               <p className="mt-2 font-semibold">পরামর্শ:</p>
               <p>{result.advice}</p>
-              <p className="text-sm text-gray-600 mt-1">
+              <p className="text-sm text-gray-600">
                 কারণ: {result.explanation}
               </p>
             </div>
           );
         })()}
 
-        <p className="text-xs text-center text-gray-400">
+        <p className="text-xs text-center text-gray-400 mt-6">
           ⚠ এটি ডাক্তারের বিকল্প নয়
         </p>
-      </div>
-
-      {/* ✅ STICKY BUTTON — আর লুকাবে না */}
-      <div className="fixed bottom-0 left-0 w-full bg-white px-4 py-3 shadow-lg">
-        <div className="max-w-md mx-auto">
-          <button
-            onClick={handleAnalysis}
-            disabled={loading}
-            className="w-full py-4 rounded-xl text-white font-bold text-lg
-            bg-gradient-to-r from-pink-500 to-purple-600
-            active:scale-95 transition"
-          >
-            {loading ? "বিশ্লেষণ করা হচ্ছে..." : "পরামর্শ নিন"}
-          </button>
-        </div>
       </div>
     </div>
   );
