@@ -60,7 +60,7 @@ The backend of **Mobile Midwife AI** is deployed separately to ensure scalabilit
   - Future AI/ML integration ready  
 
 🔗 **Live Backend API:**  
-👉 https://mobile-midwife-backend.onrender.com  
+👉 https://mobile-midwife-ai.onrender.com/
 *(replace with your actual Render URL if different)*
 
 ---
