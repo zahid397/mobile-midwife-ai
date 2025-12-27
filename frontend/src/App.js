@@ -1,175 +1,78 @@
-import React, { useState } from "react";
-import { analyzeSymptoms } from "./api";
+import React, { useState } from 'react';
 
-function App() {
-  const [symptoms, setSymptoms] = useState("");
-  const [month, setMonth] = useState("");
-  const [result, setResult] = useState(null);
+const MobileMidwifeUI = () => {
+  const [symptoms, setSymptoms] = useState('');
+  const [month, setMonth] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setResult(null);
-
-    if (!symptoms.trim()) {
-      setError("⚠️ Please enter symptoms");
-      return;
-    }
-
-    if (!month || month < 1 || month > 9) {
-      setError("⚠️ Pregnancy month must be between 1 and 9");
-      return;
-    }
-
+  const handleAnalyze = () => {
     setLoading(true);
-
-    try {
-      const res = await analyzeSymptoms({
-        symptoms,
-        pregnancy_month: Number(month),
-      });
-      setResult(res.data);
-    } catch (err) {
-      setError("❌ API error. Please try again.");
-      console.error(err);
-    }
-
-    setLoading(false);
+    // এখানে আপনার API কল বা লজিক বসবে
+    setTimeout(() => setLoading(false), 2000); 
   };
 
-  const riskEmoji =
-    result?.risk_level === "HIGH"
-      ? "🚨"
-      : result?.risk_level === "MEDIUM"
-      ? "⚠️"
-      : "✅";
-
   return (
-    <div style={styles.container}>
-      <h2 style={styles.title}>🤰 Mobile Midwife AI</h2>
-      <p style={styles.subtitle}>
-        AI-powered pregnancy risk awareness tool
-      </p>
+    <div className="min-h-screen bg-[#0f172a] flex flex-col items-center justify-center p-4 font-sans text-white">
+      {/* Background Decor */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 left-10 w-32 h-32 bg-teal-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
+      </div>
 
-      <form onSubmit={handleSubmit} style={styles.card}>
-        <label style={styles.label}>Symptoms</label>
-        <input
-          type="text"
-          placeholder="e.g. nausea, headache, bleeding"
-          value={symptoms}
-          onChange={(e) => setSymptoms(e.target.value)}
-          style={styles.input}
-        />
-
-        <label style={styles.label}>Pregnancy Month (1–9)</label>
-        <input
-          type="number"
-          placeholder="e.g. 3"
-          value={month}
-          onChange={(e) => setMonth(e.target.value)}
-          style={styles.input}
-        />
-
-        {error && <p style={styles.error}>{error}</p>}
-
-        <button type="submit" style={styles.button} disabled={loading}>
-          {loading ? "Analyzing..." : "Analyze"}
-        </button>
-      </form>
-
-      {result && (
-        <div style={styles.resultCard}>
-          <h3>🧠 Result</h3>
-          <p>
-            <b>Risk:</b> {riskEmoji}{" "}
-            <span style={{ color: riskColor(result.risk_level) }}>
-              {result.risk_level}
-            </span>
-          </p>
-          <p>
-            <b>Advice:</b> {result.advice}
-          </p>
-          <p>
-            <b>Explanation:</b> {result.explanation}
-          </p>
-
-          <p style={styles.disclaimer}>
-            ⚠️ This tool does not replace professional medical advice.
-          </p>
+      {/* Main Container */}
+      <div className="z-10 w-full max-w-md bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-3xl shadow-2xl">
+        <div className="text-center mb-8">
+          <div className="inline-block p-3 bg-teal-500/20 rounded-2xl mb-4">
+            <span className="text-3xl">🤰</span>
+          </div>
+          <h1 className="text-2xl font-bold tracking-tight text-white">Mobile Midwife AI</h1>
+          <p className="text-gray-400 text-sm mt-2">AI-powered pregnancy risk awareness tool</p>
         </div>
-      )}
+
+        <div className="space-y-6">
+          {/* Symptoms Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">উপসর্গসমূহ (Symptoms)</label>
+            <textarea
+              className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all"
+              placeholder="যেমন: মাথা ব্যথা, বমি বমি ভাব..."
+              rows="3"
+              value={symptoms}
+              onChange={(e) => setSymptoms(e.target.value)}
+            />
+          </div>
+
+          {/* Pregnancy Month Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">গর্ভাবস্থার মাস (১-৯)</label>
+            <input
+              type="number"
+              min="1"
+              max="9"
+              className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all"
+              placeholder="যেমন: ৩"
+              value={month}
+              onChange={(e) => setMonth(e.target.value)}
+            />
+          </div>
+
+          {/* Analyze Button */}
+          <button
+            onClick={handleAnalyze}
+            disabled={loading}
+            className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-white font-bold py-4 rounded-xl shadow-lg transform transition active:scale-95 disabled:opacity-50"
+          >
+            {loading ? "বিশ্লেষণ করা হচ্ছে..." : "Analyze (বিশ্লেষণ করুন)"}
+          </button>
+        </div>
+
+        {/* Disclaimer */}
+        <p className="mt-8 text-[10px] text-center text-gray-500 leading-relaxed uppercase tracking-widest">
+          সতর্কতা: এটি কোনো চিকিৎসকের বিকল্প নয়। জরুরি প্রয়োজনে ডাক্তারের পরামর্শ নিন।
+        </p>
+      </div>
     </div>
   );
-}
-
-const riskColor = (risk) => {
-  if (risk === "HIGH") return "#e63946";
-  if (risk === "MEDIUM") return "#f4a261";
-  return "#2a9d8f";
 };
 
-const styles = {
-  container: {
-    maxWidth: 420,
-    margin: "0 auto",
-    padding: 20,
-    fontFamily: "system-ui, sans-serif",
-  },
-  title: {
-    marginBottom: 5,
-  },
-  subtitle: {
-    color: "#555",
-    marginBottom: 20,
-  },
-  card: {
-    background: "#fff",
-    padding: 20,
-    borderRadius: 12,
-    boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-  },
-  label: {
-    fontWeight: "600",
-    display: "block",
-    marginTop: 10,
-  },
-  input: {
-    width: "100%",
-    padding: 12,
-    marginTop: 5,
-    borderRadius: 8,
-    border: "1px solid #ccc",
-    fontSize: 16,
-  },
-  button: {
-    marginTop: 20,
-    width: "100%",
-    padding: 14,
-    background: "linear-gradient(135deg,#06beb6,#48b1bf)",
-    color: "#fff",
-    border: "none",
-    borderRadius: 10,
-    fontSize: 16,
-    fontWeight: "bold",
-    cursor: "pointer",
-  },
-  error: {
-    color: "#d62828",
-    marginTop: 10,
-  },
-  resultCard: {
-    marginTop: 30,
-    background: "#f9f9f9",
-    padding: 20,
-    borderRadius: 12,
-  },
-  disclaimer: {
-    marginTop: 15,
-    fontSize: 13,
-    color: "#666",
-  },
-};
-
-export default App;
+export default MobileMidwifeUI;
