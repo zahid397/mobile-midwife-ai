@@ -1,33 +1,54 @@
-import React, { useEffect } from 'react';
-import { Volume2 } from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { Volume2 } from "lucide-react";
 
 const VoiceOutput = ({ text }) => {
-  
+  const [voices, setVoices] = useState([]);
+
+  // Load voices properly (important fix)
+  useEffect(() => {
+    const loadVoices = () => {
+      const v = window.speechSynthesis.getVoices();
+      setVoices(v);
+    };
+
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+  }, []);
+
   const speak = () => {
-    if (!window.speechSynthesis) return;
-    
-    // Stop any previous speech
+    if (!text || !window.speechSynthesis) return;
+
+    // Stop previous speech
     window.speechSynthesis.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text);
-    // Try to find a Bangla voice, fallback to default
-    const voices = window.speechSynthesis.getVoices();
-    const banglaVoice = voices.find(v => v.lang.includes('bn'));
-    
+
+    // Bangla voice priority
+    const banglaVoice =
+      voices.find(v => v.lang === "bn-BD") ||
+      voices.find(v => v.lang.startsWith("bn")) ||
+      voices.find(v => v.lang.startsWith("en"));
+
     if (banglaVoice) utterance.voice = banglaVoice;
-    utterance.lang = 'bn-BD'; // Force Bangla Locale
+
+    utterance.lang = "bn-BD";
     utterance.rate = 0.9;
-    
+    utterance.pitch = 1;
+
     window.speechSynthesis.speak(utterance);
   };
 
+  if (!text) return null;
+
   return (
-    <button 
+    <button
       onClick={speak}
-      className="flex items-center gap-2 mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+      className="flex items-center justify-center gap-2 mt-4 w-full px-4 py-3
+      bg-blue-600 text-white font-semibold rounded-xl
+      hover:bg-blue-700 active:scale-95 transition"
     >
       <Volume2 size={20} />
-      শুনুন (Play Audio)
+      শুনুন (Voice Output)
     </button>
   );
 };
