@@ -47,6 +47,30 @@ In many rural and semi-urban areas, pregnant women often ignore early symptoms d
 
 ---
 
+---
+
+## 🔗 Backend (API Server)
+The backend of **Mobile Midwife AI** is deployed separately to ensure scalability and clean architecture.
+
+- **Backend Framework:** FastAPI (Python)
+- **Deployment Platform:** Render
+- **Purpose:**  
+  - Symptom analysis API  
+  - Risk classification logic  
+  - Future AI/ML integration ready  
+
+🔗 **Live Backend API:**  
+👉 https://mobile-midwife-backend.onrender.com  
+*(replace with your actual Render URL if different)*
+
+---
+
+## 🧠 System Architecture
+
+
+
+
+
 ## 📂 Project Structure
 
 frontend/ ├── src/ │   ├── pages/ │   │   └── Home.jsx │   ├── components/ │   │   ├── InputForm.jsx │   │   ├── RiskBadge.jsx │   │   └── VoiceOutput.jsx │   ├── App.js │   ├── index.js │   └── index.css └── public/
