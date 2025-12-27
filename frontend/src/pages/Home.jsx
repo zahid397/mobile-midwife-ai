@@ -81,8 +81,8 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-pink-50 flex justify-center px-4 pt-10 overflow-y-auto">
-      <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-6 mb-10">
+    <div className="min-h-screen bg-pink-50 flex justify-center px-4 pt-6 pb-32">
+      <div className="w-full max-w-md bg-white rounded-3xl shadow-xl p-6">
 
         {/* Header */}
         <div className="text-center mb-6">
@@ -124,22 +124,11 @@ const Home = () => {
           ))}
         </select>
 
-        {/* BUTTON — এখন আর লুকাবে না */}
-        <button
-          onClick={handleAnalysis}
-          disabled={loading}
-          className="w-full py-4 rounded-xl text-white font-bold text-lg
-          bg-gradient-to-r from-pink-500 to-purple-600
-          active:scale-95 transition"
-        >
-          {loading ? "বিশ্লেষণ করা হচ্ছে..." : "পরামর্শ নিন"}
-        </button>
-
-        {/* Result */}
+        {/* RESULT */}
         {result && (() => {
           const ui = getRiskUI(result.risk);
           return (
-            <div className={`mt-6 p-4 rounded-xl border ${ui.bg}`}>
+            <div className={`mb-6 p-4 rounded-xl border ${ui.bg}`}>
               <div className={`flex items-center gap-2 font-bold ${ui.color}`}>
                 {ui.icon} {ui.label}
               </div>
@@ -152,9 +141,24 @@ const Home = () => {
           );
         })()}
 
-        <p className="text-xs text-center text-gray-400 mt-6">
+        <p className="text-xs text-center text-gray-400">
           ⚠ এটি ডাক্তারের বিকল্প নয়
         </p>
+      </div>
+
+      {/* ✅ STICKY BUTTON — আর লুকাবে না */}
+      <div className="fixed bottom-0 left-0 w-full bg-white px-4 py-3 shadow-lg">
+        <div className="max-w-md mx-auto">
+          <button
+            onClick={handleAnalysis}
+            disabled={loading}
+            className="w-full py-4 rounded-xl text-white font-bold text-lg
+            bg-gradient-to-r from-pink-500 to-purple-600
+            active:scale-95 transition"
+          >
+            {loading ? "বিশ্লেষণ করা হচ্ছে..." : "পরামর্শ নিন"}
+          </button>
+        </div>
       </div>
     </div>
   );
